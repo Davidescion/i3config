@@ -1,4 +1,4 @@
-# i3 config file (v4)
+# i3 config file (v4) davidescion edit
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 #
@@ -41,20 +41,19 @@ bindsym Mod4+Return exec sakura
 bindsym Mod4+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod4+space exec dmenu_run
+bindsym Mod4+space exec dmenu_run #ideal for mac users
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym Mod4+space exec --no-startup-id i3-dmenu-desktop
+# davidescion doesn't use or suggest this because displaying cli stuff can be handy
 
 # change focus
 bindsym Mod4+$left focus left
 bindsym Mod4+$down focus down
 bindsym Mod4+$up focus up
 bindsym Mod4+$right focus right
-
-# super+tab equivalent
-bindsym Mod4+Tab focus right
+# I almost never use those and might even remove them
 
 # alternatively, you can use the cursor keys:
 bindsym Mod4+Left focus left
@@ -67,6 +66,7 @@ bindsym Mod4+Shift+$left move left
 bindsym Mod4+Shift+$down move down
 bindsym Mod4+Shift+$up move up
 bindsym Mod4+Shift+$right move right
+# Same as above
 
 # alternatively, you can use the cursor keys:
 bindsym Mod4+Shift+Left move left
@@ -82,14 +82,17 @@ bindsym Mod4+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod4+f fullscreen toggle
+# I barely use this too
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym Mod4+s layout stacking
 bindsym Mod4+w layout tabbed
 bindsym Mod4+e layout toggle split
+# why are you even using i3 if you use those
 
 # toggle tiling / floating
 bindsym Mod4+Shift+space floating toggle
+# somewhat useful
 
 # change focus between tiling / floating windows
 bindsym Mod4+t focus mode_toggle
@@ -102,6 +105,7 @@ bindsym Mod4+a focus parent
 
 # move the currently focused window to the scratchpad
 bindsym Mod4+Shift+minus move scratchpad
+# excuse me what? I have no idea what this even does
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
@@ -119,7 +123,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9. Logging"
 set $ws10 "10. Audio Rack"
-
+#You should probably edit those
 
 # switch to workspace
 bindsym Mod4+1 workspace $ws1
@@ -148,6 +152,7 @@ bindsym Mod4+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym Mod4+Shift+c reload
+# honestly you should restart and not use this which works tremendusly better in my experience
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -203,7 +208,8 @@ bar {
 # window colors
 #                       border              background         text                 indicator
 client.focused          #1D241D             #1D241D            #ffffff              #423638
-#execs
+
+# execs
 exec sakura
 exec firefox
 exec i3
@@ -213,11 +219,13 @@ exec discord
 exec carla
 exec subl3
 exec gimp
-#assigns
+
+# assigns
 assign[class=gimp]$ws5
 assign[class=Gimp]$ws5
-assign[class=sakura]$ws1
-assign[class=Sakura]$ws1
+# assign[class=sakura]$ws1
+# assign[class=Sakura]$ws1
+# removed because terminals are useful on all workspaces
 assign[class="Cadence"]$ws10
 assign[class="Firefox"]$ws2
 assign[class="Carla2"]$ws10
@@ -227,9 +235,11 @@ assign[class="-geometry"]$ws9
 assign[class="80x50+494+51"]$ws9
 assign[class="subl3"]$ws4
 assign[class="Subl3"]$ws4
-#screenshot
+
+# screenshot
 bindsym Mod4+Shift+s exec xfce4-screenshooter
-#media keys
+
+# media keys
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -237,3 +247,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86KbdBrightnessUp exec kbdbacklight up #increase keyboard brightness
 bindsym XF86KbdBrightnessDown exec kbdbacklight down #increase keyboard brightness
+
+# super+tab equivalent
+bindsym Mod4+Tab focus right
