@@ -1,3 +1,3 @@
 # i3config
 my shitty configs
-PLEASE DO NOT USE THEM AS IS
+IF YOU WANT TO USE EM AS IS DUMP EVERYTHING IN ~/.i3
