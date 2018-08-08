@@ -210,7 +210,7 @@ bar {
 client.focused          #1D241D             #1D241D            #ffffff              #423638
 
 # execs
-exec_always --no-startup-id feh --bg-fill ~/.i3/bg.jpg #change this to your background if you don't want to use mine
+exec_always --no-startup-id feh --bg-fill ~/.i3/bg.jpg #change this to your background if you don't want to use mine 
 exec sakura
 exec firefox
 exec i3
