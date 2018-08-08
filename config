@@ -188,7 +188,7 @@ bindsym Mod4+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command LC_ALL=C i3status -c /home/davide/Downloads/i3status.conf
+        status_command LC_ALL=C i3status -c ~/.i3/i3status.conf
         colors{
                 #                  border             background         text
                 focused_workspace  #000000            #000000            ffffff
@@ -210,6 +210,7 @@ bar {
 client.focused          #1D241D             #1D241D            #ffffff              #423638
 
 # execs
+exec --no-startup-id feh --bg-fill ~/.i3/bg.jpg #change this to your background if you don't want to use mine
 exec sakura
 exec firefox
 exec i3
@@ -230,9 +231,6 @@ assign[class="Cadence"]$ws10
 assign[class="Firefox"]$ws2
 assign[class="Carla2"]$ws10
 assign[class="discord"]$ws3
-assign[class="xterm"]$ws9
-assign[class="-geometry"]$ws9
-assign[class="80x50+494+51"]$ws9
 assign[class="subl3"]$ws4
 assign[class="Subl3"]$ws4
 
