@@ -2,7 +2,7 @@
 
 # Definitions
 # set $mod Mod4 # Mod4 is super or windows key or command Mod1 is alt or option
-set $term sakura
+set $term st
 set $ws1 "1. Terminals"
 set $ws2 "2. Firefox"
 set $ws3 "3. Discord"
@@ -17,7 +17,6 @@ set $ws10 "10. Audio Rack"
 
 # start a terminal
 bindsym Mod4+Return exec $term
-
 # kill focused window
 bindsym Mod4+q kill
 
@@ -84,7 +83,7 @@ bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Start i3bar to display a workspace bar (plus the system information i3status)
 bar {
-        status_command LC_ALL=C i3status -c ~/.i3/i3status.conf
+        status_command ~/.i3/smdi3status.sh
         colors{
                 #                  border             background         text
                 focused_workspace  #000000            #000000            ffffff
@@ -100,13 +99,11 @@ client.focused          #1D241D             #1D241D            #ffffff          
 exec_always --no-startup-id feh --bg-fill ~/.i3/bg.png #change this to your background if you don't want to use mine
 exec $term
 exec $term
-exec firefox
-exec i3
-exec_always "setxkbmap -layout it"
+exec qutebrowser
 exec cadence
 exec discord
 exec carla
-exec --no-startup-id $term -e micro --class micro
+exec $term -e micro --class micro
 exec gimp
 exec_always compton -b --config ~/.config/compton.conf
 
@@ -114,7 +111,7 @@ exec_always compton -b --config ~/.config/compton.conf
 assign[class=gimp]$ws5
 assign[class=Gimp]$ws5
 assign[class="Cadence"]$ws10
-assign[class="Firefox"]$ws2
+assign[class="qutebrowser"]$ws2
 assign[class="Carla2"]$ws10
 assign[class="discord"]$ws3
 assign[class="micro"]$ws4
