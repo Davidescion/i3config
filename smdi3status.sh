@@ -9,7 +9,7 @@ date=$(date | awk '{print $4, $3, $2, $6}') #cmon do I really need to explain th
 floatCPU=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}') #bash insanity to get cpu usage
 CPU=$(printf "%.*f\n" 2 $floatCPU)
 rootspace=$(df -h | grep sda2 | awk '{print $4, "free in", $6}')
-lol=$(echo "CPU:" $CPU "%" "|" "Used Memory:" $mem "|" $rootspace "|" "Kernel:" $kernelver "|" "Time:" $date)
+lol=$(echo "CPU:" $CPU "%" "|" "Used Memory:" $mem "|" "Disk:" $rootspace "|" "Kernel:" $kernelver "|" "Time:" $date)
 echo -n $lol
 sleep 1
 done
