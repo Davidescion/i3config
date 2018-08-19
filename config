@@ -5,7 +5,7 @@
 set $term st
 
 set $ws1 "1. Qutebrowser"
-set $ws2 "2. Discord"
+set $ws2 "2. Weechat"
 set $ws3 "3. Text Editor"
 set $ws4 "4. Media"
 set $ws5 "5. Terminals"
@@ -63,7 +63,9 @@ bindsym Mod4+7 workspace $ws7
 bindsym Mod4+8 workspace $ws8
 bindsym Mod4+9 workspace $ws9
 bindsym Mod4+0 workspace $ws10
-
+bindsym Mod4+w workspace $ws4
+bindsym Mod4+e workspace $ws5
+bindsym Mod4+r workspace $ws6
 
 # move focused container to workspace
 bindsym Mod4+Shift+1 move container to workspace $ws1
@@ -76,6 +78,7 @@ bindsym Mod4+Shift+7 move container to workspace $ws7
 bindsym Mod4+Shift+8 move container to workspace $ws8
 bindsym Mod4+Shift+9 move container to workspace $ws9
 bindsym Mod4+Shift+0 move container to workspace $ws10
+bindsym Mod4+Shift+w move container to workspace $ws4
 
 # assign workspace to monitor
 workspace $ws1 output HDMI-A-1-2
@@ -111,12 +114,14 @@ exec $term
 exec $term
 exec qutebrowser
 exec sakura -x micro --class micro
+exec sakura -x weechat --class weechat
 exec_always compton -b --config ~/.config/compton.conf
 exec --no-startup-id nitrogen --restore
 
 # assigns
 assign[class="qutebrowser"]$ws1
 assign[class="micro"]$ws3
+assign[class="weechat"]$ws2
 assign[class="xterm"]$ws5
 
 # screenshot
