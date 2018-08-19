@@ -106,6 +106,7 @@ client.focused          #1D241D             #1D241D            #ffffff          
 
 # execs
 exec ~/.i3/screens.sh
+exec_always ~/.i3/keyboard.sh
 exec $term
 exec $term
 exec qutebrowser
