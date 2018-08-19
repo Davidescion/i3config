@@ -3,16 +3,17 @@
 # Definitions
 # set $mod Mod4 # Mod4 is super or windows key or command Mod1 is alt or option
 set $term st
-set $ws1 "1. Terminals"
-set $ws2 "2. Firefox"
-set $ws3 "3. Discord"
-set $ws4 "4. Text Editors"
-set $ws5 "5. Picture Editing"
-set $ws6 "6"
+
+set $ws1 "1. Qutebrowser"
+set $ws2 "2. Discord"
+set $ws3 "3. Text Editor"
+set $ws4 "4. Media"
+set $ws5 "5. Terminals"
+set $ws6 "6. Stuffs"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9. Logging"
-set $ws10 "10. Audio Rack"
+set $ws9 "9"
+set $ws10 "10"
 # You should probably edit those
 
 # start a terminal
@@ -76,6 +77,14 @@ bindsym Mod4+Shift+8 move container to workspace $ws8
 bindsym Mod4+Shift+9 move container to workspace $ws9
 bindsym Mod4+Shift+0 move container to workspace $ws10
 
+# assign workspace to monitor
+workspace $ws1 output HDMI-A-1-2
+workspace $ws2 output HDMI-A-1-2
+workspace $ws3 output HDMI-A-1-2
+workspace $ws4 output HDMI-A-1
+workspace $ws5 output VGA-3-1
+workspace $ws6 output VGA-3-1
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3 or config file)
 bindsym Mod4+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -96,25 +105,18 @@ bar {
 client.focused          #1D241D             #1D241D            #ffffff              #423638
 
 # execs
-exec_always --no-startup-id feh --bg-fill ~/.i3/bg.png #change this to your background if you don't want to use mine
+exec ~/.i3/screens.sh
 exec $term
 exec $term
 exec qutebrowser
-exec cadence
-exec discord
-exec carla
-exec $term -e micro --class micro
-exec gimp
+exec sakura -x micro --class micro
 exec_always compton -b --config ~/.config/compton.conf
+exec --no-startup-id nitrogen --restore
 
 # assigns
-assign[class=gimp]$ws5
-assign[class=Gimp]$ws5
-assign[class="Cadence"]$ws10
-assign[class="qutebrowser"]$ws2
-assign[class="Carla2"]$ws10
-assign[class="discord"]$ws3
-assign[class="micro"]$ws4
+assign[class="qutebrowser"]$ws1
+assign[class="micro"]$ws3
+assign[class="xterm"]$ws5
 
 # screenshot
 bindsym Mod4+Shift+s exec xfce4-screenshooter
