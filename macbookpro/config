@@ -4,15 +4,15 @@
 # set $mod Mod4 # Mod4 is super or windows key or command Mod1 is alt or option
 set $term sakura
 set $ws1 "1. Terminals"
-set $ws2 "2. Firefox"
-set $ws3 "3. Discord"
-set $ws4 "4. Text Editors"
-set $ws5 "5. Picture Editing"
+set $ws2 "2. Qutebrowser"
+set $ws3 "3. Weechat"
+set $ws4 "4. Text Editor"
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9. Logging"
-set $ws10 "10. Audio Rack"
+set $ws9 "9"
+set $ws10 "10"
 # You should probably edit those
 
 # start a terminal
@@ -100,24 +100,17 @@ client.focused          #1D241D             #1D241D            #ffffff          
 exec_always --no-startup-id feh --bg-fill ~/.i3/bg.png #change this to your background if you don't want to use mine
 exec $term
 exec $term
-exec firefox
-exec i3
+exec qutebrowser
 exec_always "setxkbmap -layout it"
-exec cadence
-exec discord
-exec carla
 exec --no-startup-id $term -x micro --class micro
-exec gimp
+exec --no-startup-id $term -x weechat --class weechat
 exec_always compton -b --config ~/.config/compton.conf
 
 # assigns
-assign[class=gimp]$ws5
-assign[class=Gimp]$ws5
-assign[class="Cadence"]$ws10
-assign[class="Firefox"]$ws2
-assign[class="Carla2"]$ws10
-assign[class="discord"]$ws3
+assign[class="qutebrowser"]$ws2
 assign[class="micro"]$ws4
+assign[class="weechat"]$ws3
+
 
 # screenshot
 bindsym Mod4+Shift+s exec xfce4-screenshooter
