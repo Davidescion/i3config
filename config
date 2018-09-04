@@ -108,21 +108,21 @@ bar {
 client.focused          #1D241D             #1D241D            #ffffff              #423638
 
 # execs
-exec ~/.i3/screens.sh
-exec_always ~/.i3/keyboard.sh
+exec_always --no-startup-id feh --no-fehbg --bg-scale --recursive ~/.i3/Wallpapers/1.jpg ~/.i3/Wallpapers/2.jpg ~/.i3/Wallpapers/3.jpg #you need to fix this if you have a different setup
+exec ~/.i3/screens.sh #take a look at this file too, you probably have a different monitor configuration
+exec_always ~/.i3/keyboard.sh #not everyone wants this, but I sure do
 exec $term
 exec $term
-exec qutebrowser
+exec qutebrowser #this should be your browser
 exec sakura -x micro --class micro
 exec sakura -x weechat --class weechat
 exec_always compton -b --config ~/.config/compton.conf
-exec --no-startup-id nitrogen --restore
 
 # assigns
 assign[class="qutebrowser"]$ws1
 assign[class="micro"]$ws3
 assign[class="weechat"]$ws2
-assign[class="xterm"]$ws5
+assign[class="st-256color"]$ws5
 
 # screenshot
 bindsym Mod4+Shift+s exec xfce4-screenshooter
