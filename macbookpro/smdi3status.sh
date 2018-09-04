@@ -6,8 +6,7 @@ do #start the loop
 mem=$(free --mega | grep Mem | awk '{print $3, "/ " $2}') #get used and total mem
 kernelver=$(uname -a | awk '{print $3}') #this is the easiest to understand, we just get the kernel version from uname -a
 date=$(date | awk '{print $4, $3, $2, $6}') #cmon do I really need to explain this?
-floatCPU=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}') #bash insanity to get cpu usage
-CPU=$(printf "%.*f\n" 2 $floatCPU) #set cpu usage to only 2 values of float
+CPU=$(top -bn 1 | grep "%Cpu(s)" | awk '{usage=100-$8} END {print usage}') #gets cpu usage from top
 floatKB=$(cat /sys/class/leds/smc\:\:kbd_backlight/brightness | awk '{usage=($1/255)*100} END {print usage}') #mbp backlight 
 KB=$(printf "%.*f\n" 2 $floatKB) # sets a max of 2 numbers of float on the backlight
 DISP=$(light -s gmux_backlight) # gets the display backlight
